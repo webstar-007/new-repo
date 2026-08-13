@@ -89,7 +89,8 @@ The x permission means that the script can be executed.
 
 ## **Screenshot \- Script and Execute Permission**
 
-![][image1]
+<img width="662" height="65" alt="Screenshot from 2026-08-11 08-33-14" src="https://github.com/user-attachments/assets/8b1e0e89-e6ed-41a3-abca-815e77700d8d" />
+
 
 # **2\. Database File**
 
