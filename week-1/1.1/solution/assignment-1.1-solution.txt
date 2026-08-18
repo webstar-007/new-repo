@@ -1,0 +1,384 @@
+assign@ankur:~$ pwd
+/home/assign
+assign@ankur:~$ mkdir linux
+assign@ankur:~$ mkdir linux/Assignment-01
+assign@ankur:~$ mkdir /tmp/dir1
+assign@ankur:~$ mkdir /tmp/dir1/dir2 /tmp/dir1/dir2/dir3
+assign@ankur:~$ rm /tmp/dir1/dir2/dir3
+rm: cannot remove '/tmp/dir1/dir2/dir3': Is a directory
+assign@ankur:~$ rm -r /tmp/dir1/dir2/dir3
+assign@ankur:~$ touch /tmp/ankur
+assign@ankur:~$ echo "This is my first line" >> /tmp/ankur
+assign@ankur:~$ echo "This is a additional content" >> /tmp/ankur
+assign@ankur:~$ cat /tmp/ankur
+This is my first line
+This is a additional content
+assign@ankur:~$ echo "balwada is my last name" > /tmp/balwada
+assign@ankur:~$ cat /tmp/balwada
+balwada is my last name
+assign@ankur:~$ echo "this is line at the beginning" > temp-file
+assign@ankur:~$ cat /tmp/balwada >> temp-file
+assign@ankur:~$ mv temp-file /tmp/balwada
+assign@ankur:~$ cat /tmp/balwada
+this is line at the beginning
+balwada is my last name
+assign@ankur:~$ echo"this is third line" >> /tmp/balwada
+echothis is third line: command not found
+assign@ankur:~$ echo "this is third line" >> /tmp/balwada
+assign@ankur:~$ echo "this is fourth line" >> /tmp/balwada
+assign@ankur:~$ echo "this is fifth line" >> /tmp/balwada
+assign@ankur:~$ echo "this is sixth line" >> /tmp/balwada
+assign@ankur:~$ echo "this is seventh line" >> /tmp/balwada
+assign@ankur:~$ echo "this is eighth line" >> /tmp/balwada
+assign@ankur:~$ echo "this is ninth line" >> /tmp/balwada
+assign@ankur:~$ echo "this is tenth line" >> /tmp/balwada
+assign@ankur:~$ tail -n 5 /tmp/balwada
+this is sixth line
+this is seventh line
+this is eighth line
+this is ninth line
+this is tenth line
+assign@ankur:~$ head -n 5 /tmp/balwada
+this is line at the beginning
+balwada is my last name
+this is third line
+this is fourth line
+this is fifth line
+assign@ankur:~$ tail -n 2 /tmp/balwada
+this is ninth line
+this is tenth line
+assign@ankur:~$ tail --help
+Usage: tail [OPTION]... [FILE]...
+Print the last 10 lines of each FILE to standard output.
+With more than one FILE, precede each with a header giving the file name.
+
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -c, --bytes=[+]NUM       output the last NUM bytes; or use -c +NUM to
+                             output starting with byte NUM of each file
+  -f, --follow[={name|descriptor}]
+                           output appended data as the file grows;
+                             an absent option argument means 'descriptor'
+  -F                       same as --follow=name --retry
+  -n, --lines=[+]NUM       output the last NUM lines, instead of the last 10;
+                             or use -n +NUM to skip NUM-1 lines at the start
+      --max-unchanged-stats=N
+                           with --follow=name, reopen a FILE which has not
+                             changed size after N (default 5) iterations
+                             to see if it has been unlinked or renamed
+                             (this is the usual case of rotated log files);
+                             with inotify, this option is rarely useful
+      --pid=PID            with -f, terminate after process ID, PID dies
+  -q, --quiet, --silent    never output headers giving file names
+      --retry              keep trying to open a file if it is inaccessible
+  -s, --sleep-interval=N   with -f, sleep for approximately N seconds
+                             (default 1.0) between iterations;
+                             with inotify and --pid=P, check process P at
+                             least once every N seconds
+  -v, --verbose            always output headers giving file names
+  -z, --zero-terminated    line delimiter is NUL, not newline
+      --help        display this help and exit
+      --version     output version information and exit
+
+NUM may have a multiplier suffix:
+b 512, kB 1000, K 1024, MB 1000*1000, M 1024*1024,
+GB 1000*1000*1000, G 1024*1024*1024, and so on for T, P, E, Z, Y, R, Q.
+Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
+
+With --follow (-f), tail defaults to following the file descriptor, which
+means that even if a tail'ed file is renamed, tail will continue to track
+its end.  This default behavior is not desirable when you really want to
+track the actual name of the file, not the file descriptor (e.g., log
+rotation).  Use --follow=name in that case.  That causes tail to track the
+named file in a way that accommodates renaming, removal and creation.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Full documentation <https://www.gnu.org/software/coreutils/tail>
+or available locally via: info '(coreutils) tail invocation'
+assign@ankur:~$ tail -n 5 /tmp/balwada | head -n 1
+this is sixth line
+assign@ankur:~$ tail -n 8 /tmp/balwada | head -n 6
+this is third line
+this is fourth line
+this is fifth line
+this is sixth line
+this is seventh line
+this is eighth line
+assign@ankur:~$ ls -a /tmp
+.                          .ICE-unix
+..                         snap-private-tmp
+ankur                      systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM
+balwada                    systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV
+.com.google.Chrome.8uFIG0  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm
+.com.google.Chrome.9EmO9q  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD
+.com.google.Chrome.D61DwW  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52
+.com.google.Chrome.FhSIRC  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY
+.com.google.Chrome.JgPTZg  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm
+.com.google.Chrome.jlnKr3  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi
+.com.google.Chrome.Mp4jIs  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8
+.com.google.Chrome.mtgfdC  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv
+.com.google.Chrome.Q8s1o5  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh
+.com.google.Chrome.Qugn5j  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS
+.com.google.Chrome.XBfukY  systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb
+.com.google.Chrome.XlmDEx  .X0-lock
+.com.google.Chrome.yzGq19  .X11-unix
+dir1                       .X1-lock
+.font-unix                 .XIM-unix
+assign@ankur:~$ find /tmp type -f
+find: unknown predicate `-f'
+assign@ankur:~$ find /tmp type f
+/tmp
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi’: Permission denied
+/tmp/.X0-lock
+/tmp/ankur
+/tmp/.com.google.Chrome.9EmO9q
+find: ‘/tmp/.com.google.Chrome.9EmO9q’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8’: Permission denied
+/tmp/.com.google.Chrome.XlmDEx
+find: ‘/tmp/.com.google.Chrome.XlmDEx’: Permission denied
+/tmp/.com.google.Chrome.FhSIRC
+find: ‘/tmp/.com.google.Chrome.FhSIRC’: Permission denied
+/tmp/.font-unix
+/tmp/.com.google.Chrome.yzGq19
+find: ‘/tmp/.com.google.Chrome.yzGq19’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV’: Permission denied
+/tmp/.com.google.Chrome.JgPTZg
+find: ‘/tmp/.com.google.Chrome.JgPTZg’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm’: Permission denied
+/tmp/.XIM-unix
+/tmp/.com.google.Chrome.D61DwW
+find: ‘/tmp/.com.google.Chrome.D61DwW’: Permission denied
+/tmp/.com.google.Chrome.Q8s1o5
+find: ‘/tmp/.com.google.Chrome.Q8s1o5’: Permission denied
+/tmp/balwada
+/tmp/.X1-lock
+/tmp/.com.google.Chrome.Mp4jIs
+find: ‘/tmp/.com.google.Chrome.Mp4jIs’: Permission denied
+/tmp/.com.google.Chrome.jlnKr3
+find: ‘/tmp/.com.google.Chrome.jlnKr3’: Permission denied
+/tmp/snap-private-tmp
+find: ‘/tmp/snap-private-tmp’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM’: Permission denied
+/tmp/.com.google.Chrome.XBfukY
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52’: Permission denied
+/tmp/dir1
+/tmp/dir1/dir2
+/tmp/.com.google.Chrome.8uFIG0
+find: ‘/tmp/.com.google.Chrome.8uFIG0’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS’: Permission denied
+/tmp/.X11-unix
+/tmp/.X11-unix/X1
+/tmp/.X11-unix/X0
+/tmp/.com.google.Chrome.Qugn5j
+find: ‘/tmp/.com.google.Chrome.Qugn5j’: Permission denied
+/tmp/.com.google.Chrome.mtgfdC
+find: ‘/tmp/.com.google.Chrome.mtgfdC’: Permission denied
+/tmp/.ICE-unix
+/tmp/.ICE-unix/1862
+find: ‘type’: No such file or directory
+find: ‘f’: No such file or directory
+assign@ankur:~$ ^C
+assign@ankur:~$ find /tmp -type f
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi’: Permission denied
+/tmp/.X0-lock
+/tmp/ankur
+find: ‘/tmp/.com.google.Chrome.9EmO9q’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8’: Permission denied
+find: ‘/tmp/.com.google.Chrome.XlmDEx’: Permission denied
+find: ‘/tmp/.com.google.Chrome.FhSIRC’: Permission denied
+find: ‘/tmp/.com.google.Chrome.yzGq19’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV’: Permission denied
+find: ‘/tmp/.com.google.Chrome.JgPTZg’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm’: Permission denied
+find: ‘/tmp/.com.google.Chrome.D61DwW’: Permission denied
+find: ‘/tmp/.com.google.Chrome.Q8s1o5’: Permission denied
+/tmp/balwada
+/tmp/.X1-lock
+find: ‘/tmp/.com.google.Chrome.Mp4jIs’: Permission denied
+find: ‘/tmp/.com.google.Chrome.jlnKr3’: Permission denied
+find: ‘/tmp/snap-private-tmp’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM’: Permission denied
+/tmp/.com.google.Chrome.XBfukY
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52’: Permission denied
+find: ‘/tmp/.com.google.Chrome.8uFIG0’: Permission denied
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS’: Permission denied
+find: ‘/tmp/.com.google.Chrome.Qugn5j’: Permission denied
+find: ‘/tmp/.com.google.Chrome.mtgfdC’: Permission denied
+assign@ankur:~$ find /tmp -type d
+/tmp
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi’: Permission denied
+/tmp/.com.google.Chrome.9EmO9q
+find: ‘/tmp/.com.google.Chrome.9EmO9q’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8’: Permission denied
+/tmp/.com.google.Chrome.XlmDEx
+find: ‘/tmp/.com.google.Chrome.XlmDEx’: Permission denied
+/tmp/.com.google.Chrome.FhSIRC
+find: ‘/tmp/.com.google.Chrome.FhSIRC’: Permission denied
+/tmp/.font-unix
+/tmp/.com.google.Chrome.yzGq19
+find: ‘/tmp/.com.google.Chrome.yzGq19’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV’: Permission denied
+/tmp/.com.google.Chrome.JgPTZg
+find: ‘/tmp/.com.google.Chrome.JgPTZg’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm’: Permission denied
+/tmp/.XIM-unix
+/tmp/.com.google.Chrome.D61DwW
+find: ‘/tmp/.com.google.Chrome.D61DwW’: Permission denied
+/tmp/.com.google.Chrome.Q8s1o5
+find: ‘/tmp/.com.google.Chrome.Q8s1o5’: Permission denied
+/tmp/.com.google.Chrome.Mp4jIs
+find: ‘/tmp/.com.google.Chrome.Mp4jIs’: Permission denied
+/tmp/.com.google.Chrome.jlnKr3
+find: ‘/tmp/.com.google.Chrome.jlnKr3’: Permission denied
+/tmp/snap-private-tmp
+find: ‘/tmp/snap-private-tmp’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52’: Permission denied
+/tmp/dir1
+/tmp/dir1/dir2
+/tmp/.com.google.Chrome.8uFIG0
+find: ‘/tmp/.com.google.Chrome.8uFIG0’: Permission denied
+/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS
+find: ‘/tmp/systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS’: Permission denied
+/tmp/.X11-unix
+/tmp/.com.google.Chrome.Qugn5j
+find: ‘/tmp/.com.google.Chrome.Qugn5j’: Permission denied
+/tmp/.com.google.Chrome.mtgfdC
+find: ‘/tmp/.com.google.Chrome.mtgfdC’: Permission denied
+/tmp/.ICE-unix
+assign@ankur:~$ pwd
+/home/assign
+assign@ankur:~$ cp /tmp/balwada /tmp/dir2
+assign@ankur:~$ cp /tmp/balwada /tmp/dir2/balwada.copy
+cp: cannot stat '/tmp/dir2/balwada.copy': Not a directory
+assign@ankur:~$ cp /tmp/balwada /tmp/dir1/dir2
+assign@ankur:~$ cp /tmp/balwada /tmp/dir1/dir2/balwada.copy
+assign@ankur:~$ cd /tmp
+assign@ankur:/tmp$ ls
+ankur
+balwada
+dir1
+dir2
+snap-private-tmp
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb
+assign@ankur:/tmp$ mv ankur ankur-new
+assign@ankur:/tmp$ ls
+ankur-new
+balwada
+dir1
+dir2
+snap-private-tmp
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb
+assign@ankur:/tmp$ mv balwada dir1
+assign@ankur:/tmp$ ls
+ankur-new
+dir1
+dir2
+snap-private-tmp
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-bluetooth.service-DW58lM
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-colord.service-AQrqAV
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-fwupd.service-wZscQm
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-iio-sensor-proxy.service-77LraD
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-ModemManager.service-CvRk52
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-polkit.service-pMMpLY
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-power-profiles-daemon.service-v4NVnm
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-switcheroo-control.service-KERxyi
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-logind.service-nRSsA8
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-oomd.service-yJ4dIv
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-resolved.service-z7qgXh
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-systemd-timesyncd.service-d1B5KS
+systemd-private-f7d2f38175134b9e9afaeb9b086ced17-upower.service-Go1unb
+assign@ankur:/tmp$ cd dir1
+assign@ankur:/tmp/dir1$ 
+assign@ankur:/tmp/dir1$ ls
+balwada  dir2
+assign@ankur:/tmp/dir1$ cd dir2
+assign@ankur:/tmp/dir1/dir2$ ls
+balwada  balwada.copy
+assign@ankur:/tmp/dir1/dir2$ cat balwada.copy
+this is line at the beginning
+balwada is my last name
+this is third line
+this is fourth line
+this is fifth line
+this is sixth line
+this is seventh line
+this is eighth line
+this is ninth line
+this is tenth line
+assign@ankur:/tmp/dir1/dir2$ > balwada.copy
+assign@ankur:/tmp/dir1/dir2$ cat balwada.copy
+assign@ankur:/tmp/dir1/dir2$ ls
+balwada  balwada.copy
+assign@ankur:/tmp/dir1/dir2$ rm balwada.copy
+assign@ankur:/tmp/dir1/dir2$ ls
+balwada
+
